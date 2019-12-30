@@ -11,18 +11,18 @@ from dataiku.customrecipe import *
 # or more dataset to each input and output role.
 # Roles need to be defined in recipe.json, in the inputRoles and outputRoles fields.
 
-#Inputs :
+#Inputs Management:
 L_input_datasets = get_input_names_for_role('input_dataset')
 INPUT_DATASET = dataiku.Dataset(L_input_datasets[0]) 
-print("inputs : %s"%L_input_datasets)
-#Outputs :
+
+#Outputs Management:
 L_output_datasets = get_output_names_for_role('output_dataset')
 OUTPUT_DATASET = dataiku.Dataset(L_output_datasets[0])
-print("outputs : %s"%L_output_datasets)
-#Parameters :
-uppercase_or_lowercase = get_recipe_config()['uppercase_or_lowercase']
-# Read recipe inputs
 
+#Parameters Management:
+uppercase_or_lowercase = get_recipe_config()['uppercase_or_lowercase']
+
+#Read recipe inputs :
 df_input = INPUT_DATASET.get_dataframe()
 L_cols = list(df_input.columns)
 
@@ -53,5 +53,5 @@ for col, clean_col in zip(L_cols, L_clean_cols):
 
 df_output = df_input # For this sample code, simply copy input to output
 
-# Write recipe outputs
+#Write recipe outputs :
 OUTPUT_DATASET.write_with_schema(df_output)
