@@ -55,7 +55,7 @@
             "name": "uppercase_or_lowercase",
             "label": "uppercase or lowercase",
             "type": "STRING",
-            "description": "choose between having uppercase or lowercase columns",
+            "description": "Choose between having uppercase or lowercase columns (if not well set 'lowercase' is the default value)",
             "mandatory": true
         }],
 
