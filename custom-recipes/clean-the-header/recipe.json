@@ -5,7 +5,7 @@
         // label: name of the recipe as displayed, should be short
         "label": "Clean the header",
         // description: longer string to help end users understand what this recipe does
-        "description": "",
+        "description": "This recipe goal is to clean the header columns from a given dataset :\n- Erasing of accents\n- Erasing of aberrant characters (spaces, hyphens, quotes, .....)\n- Normalization of text in lower case",
         // icon: must be one of the FontAwesome 3.2.1 icons, complete list here at https://fontawesome.com/v3.2.1/icons/
         "icon": "icon-puzzle-piece"
     },
