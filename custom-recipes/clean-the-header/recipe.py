@@ -59,10 +59,16 @@ from dataiku import pandasutils as pdu
 import re
 import unicodedata
 
-INPUT_DATASET = "CartoStructure_4T18"
+#Inputs :
+L_input_datasets = get_input_names_for_role('input_dataset')
+INPUT_DATASET = dataiku.Dataset(L_input_datasets[0]) 
 
-OUTPUT_DATASET = "CartoStructure_4T18_clean_header"
+#Outputs :
+L_output_datasets = get_output_names_for_role('output_dataset')
+OUTPUT_DATASET = dataiku.Dataset(L_output_datasets[0])
 
+#Parameters :
+uppercase_or_lowercase = get_recipe_config()['uppercase_or_lowercase']
 # Read recipe inputs
 
 dataset_input = dataiku.Dataset(INPUT_DATASET)
@@ -79,9 +85,14 @@ def clean_string_col(string_value):
     string_value = re.sub("[\.\-,' ]", '_', string_value)
 
     string_value = remove_accents(string_value)
-
-    string_value = str.lower(string_value)
-
+    if uppercase_or_lowercase == "lowerercase":
+        string_value = str.lower(string_value)
+        
+    elif uppercase_or_lowercase == "uppercase":
+        string_value = str.upper(string_value)
+    else:
+        string_value = str.lower(string_value)
+        
     return string_value
 
 L_clean_cols = [clean_string_col(col) for col in L_cols]
