@@ -50,7 +50,6 @@ L_clean_cols = [clean_string_col(col) for col in L_cols]
 for col, clean_col in zip(L_cols, L_clean_cols):
     df_input.rename({col:clean_col}, axis=1, inplace=True)
 
-
 df_output = df_input # For this sample code, simply copy input to output
 
 #Write recipe outputs :
