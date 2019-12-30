@@ -23,9 +23,7 @@ print("outputs : %s"%L_output_datasets)
 uppercase_or_lowercase = get_recipe_config()['uppercase_or_lowercase']
 # Read recipe inputs
 
-dataset_input = dataiku.Dataset(INPUT_DATASET)
-
-df_input = dataset_input.get_dataframe()
+df_input = INPUT_DATASET.get_dataframe()
 L_cols = list(df_input.columns)
 
 def remove_accents(x):
