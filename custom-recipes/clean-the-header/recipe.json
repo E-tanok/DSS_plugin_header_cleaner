@@ -51,7 +51,13 @@
        For the full list and for more details, see the documentation: https://doc.dataiku.com/dss/latest/plugins/reference/params.html
     */
 
-    "params": [],
+    "params": [{
+            "name": "uppercase_or_lowercase",
+            "label": "uppercase or lowercase",
+            "type": "STRING",
+            "description": "choose between having uppercase or lowercase columns",
+            "mandatory": true
+        }],
 
     // The field "resourceKeys" holds a list of keys that allows to limit the number
     // of concurrent executions and activities triggered by this recipe.
