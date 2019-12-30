@@ -54,7 +54,4 @@ for col, clean_col in zip(L_cols, L_clean_cols):
 df_output = df_input # For this sample code, simply copy input to output
 
 # Write recipe outputs
-
-header_clean_dataset = dataiku.Dataset(OUTPUT_DATASET)
-
-header_clean_dataset.write_with_schema(df_output)
+OUTPUT_DATASET.write_with_schema(df_output)
